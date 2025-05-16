@@ -1,0 +1,8 @@
+per=int(input("enter first number"))
+if per>=90:
+    print("first div")
+
+    
+
+
+

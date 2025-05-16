@@ -1,0 +1,49 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+
+string fun(string s,int n)
+
+{
+    string ans;
+    vector<string>words;
+    stringstream ss(s);
+    string word;
+    while(ss>>word)
+    {
+        words.push_back(word);
+    }
+  
+    sort(words.begin(),words.end());
+
+    int l=words.size();
+    string first=words[0];
+    string last=words[l-1];
+   
+    for(int i=0;i<first.length();i++)
+    {
+        if(first[i]!=last[i])
+        {
+            break;
+        }
+        else
+
+        {
+        ans+=first[i];
+        }
+    }
+    
+    return ans;
+
+}
+
+
+
+int main()
+{
+    string s="flower flight flown";
+    int n=s.length();
+    string res=fun(s,n);
+    cout<<res;
+}
+

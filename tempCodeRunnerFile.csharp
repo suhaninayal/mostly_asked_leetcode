@@ -1,0 +1,52 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+void fun(string &s) {
+    int l = 0, r = s.length() - 1;
+
+    // Trim leading spaces
+    while (l <= r && s[l] == ' ') {
+        l++;
+    }
+
+    // Trim trailing spaces
+    while (r >= l && s[r] == ' ') {
+        r--;
+    }
+
+    // Modify the original string by erasing unwanted parts
+    s.erase(r + 1); // Remove trailing spaces
+    s.erase(0, l);  // Remove leading spaces
+
+    // Reverse the entire string
+    reverse(s.begin(), s.end());
+
+    // Reverse each word in the reversed string
+    int start = 0, end = 0;
+    while (end < s.length()) {
+        while (end < s.length() && s[end] != ' ') {
+            end++;
+        }
+        reverse(s.begin() + start, s.begin() + end); // Reverse individual word
+        end++;
+        start = end;
+    }
+
+    // Remove extra spaces between words
+    int i = 0, j = 0;
+    while (j < s.length()) {
+        if (s[j] != ' ' || (i > 0 && s[i - 1] != ' ')) {
+            s[i++] = s[j];
+        }
+        j++;
+    }
+    s.erase(i); // Resize the string to remove trailing spaces
+
+    cout << s;
+}
+
+int main() {
+    string s = "     hello            world            ";
+    fun(s);
+    return 0;
+}

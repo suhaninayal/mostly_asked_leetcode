@@ -1,0 +1,85 @@
+<!doctype html>
+<html>
+    <head>
+        <title> STUDENT REGISTRAYION FORM</title>
+        <style>
+            body{
+
+                font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+                margin:20px;
+                background-color: bisque;
+               
+            }
+
+
+
+            .container{
+                max-width: 400px;
+                background-color: bisque;
+                padding:20px;
+                border-radius: 8px;
+                box-shadow: 0px 0px 10px gray;
+
+            }
+
+            label{
+                font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+                padding:9px;
+                width:550px;
+                border:11px;
+            }
+            input,select,textarea{
+                    width:95%;
+                    padding:2px;
+            }
+
+            button{
+                background-color: bisque;
+                font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+                width: 100%;
+                border:none;
+                cursor:pointer;
+                padding:10px;
+            }
+
+           
+
+
+            </style>
+            </head>
+
+    <body>
+        <div class="container">
+            <h2>Student Registration Form</h2>
+            <form>
+                <label for="name">Student Name:</label>
+                <input type="text" id="name" name="name">
+
+                <label for="email">E-mail:</label>
+                <input type="text" id="email" name="email">
+
+                <label for="phone">Phone:</label>
+                <input type="text" id="phone" name="phone" pattern="[0-9]{10}" title="phone must be 10 digit" required>
+
+                <label for="Select course">Course:</label>
+                <select id="course" name="course">
+                    <option value="">--Select--</option>
+                    <option value="computer science">Computer Science</option>
+                    <option value="MBA">MBA</option>
+                    <option value="BBA">BBA</option>
+                    <option value="others">Others</option>
+                </select>
+
+                <label for="address">Address</label>
+                <input type="address" id="address" name="address">
+
+                <label for="password">Password</label>
+                <input id="password" id="password" name="password"  minlength="6" required>
+
+                <button type="submitt">Submitt</button>
+
+            </form>
+        </div>
+    </body>
+</html>
+                
