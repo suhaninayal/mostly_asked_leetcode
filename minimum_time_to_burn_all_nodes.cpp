@@ -52,8 +52,8 @@ int burn_node(node* root,node* target)
     {
        
         int s=q.size();
+        bool burn=false;
        
-        time++;
         
         for(int i=0;i<s;i++)
         {
@@ -63,20 +63,28 @@ int burn_node(node* root,node* target)
             {
                 q.push(current->left);
                 vis[current->left]=true;
+                burn=true;
             }
 
             if(current->right && !vis[current->right])
             {
                 q.push(current->right);
                 vis[current->right]=true;
+                burn=true;
             }
 
             if(parent[current] && !vis[parent[current]])
             {
                 q.push(parent[current]);
                 vis[parent[current]]=true;
+                burn=true;
             }
+            
 
+        }
+        if(burn)
+        {
+            time++;
         }
     }
     return time;
@@ -88,12 +96,15 @@ int main()
 
    node* root=NULL;
    root=new node(1);
-   root->right=new node(2);
-   root->left=new node(3);
+   root->right=new node(3);
+   root->left=new node(2);
    root->right->left=new node(5);
-   root->right->right=new node(7);
-   root->left->right=new node(9);
-   int ans=burn_node(root,root->right);
+   root->right->right=new node(6);
+    root->left->left=new node(4);
+    root->left->left->right=new node(7);
+
+   node* target=root->left;
+   int ans=burn_node(root,target);
    cout<<ans;
   
 

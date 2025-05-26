@@ -21,7 +21,7 @@ void inorderTraversal(node* root) {
         return;
     }
     inorderTraversal(root->left);
-    cout << root->val << " ";
+    cout << root->data<<" ";
     inorderTraversal(root->right);
 }
 
